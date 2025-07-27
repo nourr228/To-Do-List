@@ -39,3 +39,8 @@
   cursor: pointer;
   border-radius: 8px;
 }
+
+#taskList {
+  padding: 12px;
+  list-style-type: none;
+}

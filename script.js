@@ -9,24 +9,31 @@ function renderTasks() {
     taskItem.className = "small-box";
     const checkbox = document.createElement("input");
     const deleteButton = document.createElement("button");
-     deleteButton.className = "delete";
+    deleteButton.className = "delete";
     const editButton = document.createElement("button");
     editButton.className = "edit";
     checkbox.type = "checkbox";
     checkbox.checked = task.checked;
     checkbox.addEventListener("change", function () {
       taskList[i].checked = checkbox.checked;
-      taskItem.style.backgroundColor = taskList[i].checked ? "#adebbcff" : "rgb(255, 127, 127)";
+      taskItem.style.backgroundColor = taskList[i].checked
+        ? "#adebbcff"
+        : "rgb(255, 127, 127)";
       localStorage.setItem("taskArray", JSON.stringify(taskList));
     });
     taskItem.appendChild(checkbox);
-    taskItem.style.backgroundColor = taskList[i].checked ? "#adebbcff" : "rgb(255, 127, 127)";
+    taskItem.style.backgroundColor = taskList[i].checked
+      ? "#adebbcff"
+      : "rgb(255, 127, 127)";
     taskItem.appendChild(document.createTextNode(" " + task.name));
     taskItem.appendChild(deleteButton);
     taskItem.appendChild(editButton);
     list.appendChild(taskItem);
     deleteButton.addEventListener("click", function () {
       deleteTask(task.id);
+    });
+    editButton.addEventListener("click", function () {
+      editTask(taskItem, i);
     });
   });
 }
@@ -60,6 +67,37 @@ function deleteAll() {
   taskList = [];
   counter = 1;
   renderTasks();
+}
+
+function editTask(taskItem, index) {
+  taskItem.innerHTML = "";
+  const newTaskName = document.createElement("input");
+  newTaskName.type = "text";
+  newTaskName.value = taskList[index].name;
+  newTaskName.className = "edit-input";
+  const saveButton = document.createElement("button");
+  saveButton.className = "save";
+  const DoNotSaveButton = document.createElement("button");
+  DoNotSaveButton.className = "do-not-save";
+  taskItem.appendChild(newTaskName);
+  taskItem.appendChild(saveButton);
+  taskItem.appendChild(DoNotSaveButton);
+  saveButton.addEventListener("click", function () {
+    if (newTaskName.value) {
+      taskList[index].name = newTaskName.value;
+    }
+    else {
+      alert("Please type a task!");
+      return;
+    }
+    localStorage.setItem("taskArray", JSON.stringify(taskList));
+    renderTasks();
+  });
+
+  DoNotSaveButton.addEventListener("click", function () {
+    renderTasks();
+  });
+
 }
 
 document.addEventListener("DOMContentLoaded", function () {

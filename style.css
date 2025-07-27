@@ -47,7 +47,7 @@
 }
 
 .small-box{
-  padding: 12px;
+  padding: 10px;
   border: 1px solid transparent;
   border-radius: 8px;
   margin-bottom: 12px;
@@ -60,5 +60,33 @@
   border: none;
   cursor: pointer;
   margin-left: 5px;
+  background-color: transparent;
+}
+
+.edit-input {
+  width: 100px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.save{
+  background-image: url(./assets/true.svg);
+  background-size: cover;
+  height: 14px;
+  border: none;
+  cursor: pointer;
+  margin-left: 11px;
+  background-color: transparent;
+}
+
+.do-not-save{
+  background-image: url(./assets/false.png);
+  background-size: cover;
+  height: 12px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
   background-color: transparent;
 }

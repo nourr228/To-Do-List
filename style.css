@@ -43,10 +43,9 @@
 
 #taskList {
   padding-left: 12px;
-
 }
 
-.small-box{
+.small-box {
   padding: 10px;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -71,7 +70,7 @@
   font-family: "Work Sans", sans-serif;
 }
 
-.save{
+.save {
   background-image: url(./assets/true.svg);
   background-size: cover;
   height: 14px;
@@ -81,7 +80,7 @@
   background-color: transparent;
 }
 
-.do-not-save{
+.do-not-save {
   background-image: url(./assets/false.png);
   background-size: cover;
   height: 12px;

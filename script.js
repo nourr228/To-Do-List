@@ -85,8 +85,7 @@ function editTask(taskItem, index) {
   saveButton.addEventListener("click", function () {
     if (newTaskName.value) {
       taskList[index].name = newTaskName.value;
-    }
-    else {
+    } else {
       alert("Please type a task!");
       return;
     }
@@ -97,7 +96,6 @@ function editTask(taskItem, index) {
   DoNotSaveButton.addEventListener("click", function () {
     renderTasks();
   });
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {

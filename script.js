@@ -5,21 +5,27 @@ function renderTasks() {
   const list = document.querySelector("#taskList");
   list.innerHTML = "";
   taskList.forEach((task, i) => {
-    const li = document.createElement("li");
+    const taskItem = document.createElement("div");
+    taskItem.className = "small-box";
     const checkbox = document.createElement("input");
-    const button = document.createElement("button");
-    button.className = "delete";
+    const deleteButton = document.createElement("button");
+     deleteButton.className = "delete";
+    const editButton = document.createElement("button");
+    editButton.className = "edit";
     checkbox.type = "checkbox";
     checkbox.checked = task.checked;
     checkbox.addEventListener("change", function () {
       taskList[i].checked = checkbox.checked;
+      taskItem.style.backgroundColor = taskList[i].checked ? "#adebbcff" : "rgb(255, 127, 127)";
       localStorage.setItem("taskArray", JSON.stringify(taskList));
     });
-    li.appendChild(checkbox);
-    li.appendChild(document.createTextNode(" " + task.name));
-    li.appendChild(button);
-    list.appendChild(li);
-    button.addEventListener("click", function () {
+    taskItem.appendChild(checkbox);
+    taskItem.style.backgroundColor = taskList[i].checked ? "#adebbcff" : "rgb(255, 127, 127)";
+    taskItem.appendChild(document.createTextNode(" " + task.name));
+    taskItem.appendChild(deleteButton);
+    taskItem.appendChild(editButton);
+    list.appendChild(taskItem);
+    deleteButton.addEventListener("click", function () {
       deleteTask(task.id);
     });
   });

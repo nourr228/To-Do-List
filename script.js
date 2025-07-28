@@ -11,6 +11,7 @@ function renderTasks() {
     const taskItem = document.createElement("div");
     taskItem.className = "small-box";
     const checkbox = document.createElement("input");
+    checkbox.style.cursor = "pointer";
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete";
     const editButton = document.createElement("button");

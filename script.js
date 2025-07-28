@@ -5,6 +5,9 @@ function renderTasks() {
   const list = document.querySelector("#taskList");
   list.innerHTML = "";
   taskList.forEach((task, i) => {
+    const taskName = document.createElement("span");
+    taskName.className = "task-name";
+    taskName.textContent = " " + task.name;
     const taskItem = document.createElement("div");
     taskItem.className = "small-box";
     const checkbox = document.createElement("input");
@@ -25,7 +28,7 @@ function renderTasks() {
     taskItem.style.backgroundColor = taskList[i].checked
       ? "#adebbcff"
       : "rgb(255, 127, 127)";
-    taskItem.appendChild(document.createTextNode(" " + task.name));
+    taskItem.appendChild(taskName);
     taskItem.appendChild(deleteButton);
     taskItem.appendChild(editButton);
     list.appendChild(taskItem);
@@ -79,6 +82,7 @@ function editTask(taskItem, index) {
   saveButton.className = "save";
   const DoNotSaveButton = document.createElement("button");
   DoNotSaveButton.className = "do-not-save";
+  //newTaskName.focus();
   taskItem.appendChild(newTaskName);
   taskItem.appendChild(saveButton);
   taskItem.appendChild(DoNotSaveButton);

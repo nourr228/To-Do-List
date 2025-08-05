@@ -98,12 +98,12 @@ function editTask(taskItem, index) {
     renderTasks();
   });
 
-  DoNotSaveButton.addEventListener("click", function () {
-    renderTasks();
-  });
+  DoNotSaveButton.addEventListener("click", renderTasks);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   taskList = JSON.parse(localStorage.getItem("taskArray")) || [];
   renderTasks();
 });
+
+console.dir(document);
